@@ -33,13 +33,7 @@
 
 # increase to 3.1 once all major distributions
 # include a version of CMake >= 3.1
-cmake_minimum_required(VERSION 3.14.0)
-if (POLICY CMP0048)
-  cmake_policy(SET CMP0048 NEW)
-endif()
-if(POLICY CMP0054)
-  cmake_policy(SET CMP0054 NEW)
-endif()
+cmake_minimum_required(VERSION 4.0)
 
 project(glslang LANGUAGES CXX)
 
@@ -313,7 +307,7 @@ else()
 endif()
 
 if(BUILD_EXTERNAL AND IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/External)
-    find_host_package(PythonInterp 3 REQUIRED)
+    find_host_package(Python3 3 REQUIRED COMPONENTS Interpreter)
 
     # We depend on these for later projects, so they should come first.
     add_subdirectory(External)
